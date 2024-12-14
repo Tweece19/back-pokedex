@@ -1,0 +1,27 @@
+services:
+  front:
+    image: node:22.12
+    ports:
+      - "8081:4200"
+    command: bash -c "npm install && npm run start"
+    working_dir: /app
+    volumes:
+      - ./front:/app
+    networks:
+      - default
+  
+  back:
+    image: node:22
+    ports:
+      - "3000:3000"
+    command: bash -c "npm install && npm run start"
+    working_dir: /app
+    volumes:
+      - ./back:/app
+    networks:
+      - default
+
+networks:
+  default:
+    name: default-network
+    
