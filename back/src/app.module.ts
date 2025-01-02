@@ -7,7 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     PokemonsModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DATABASE_HOST || '127.0.0.2',
+      host: process.env.DATABASE_HOST || '127.0.0.1',
       port: 5432,
       username: 'admin',
       password: 'admin',
