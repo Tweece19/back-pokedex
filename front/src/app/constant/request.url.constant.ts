@@ -1,5 +1,2 @@
-import * as dotenv from 'dotenv';
-dotenv.config();
-
-export const URL = process.env['URL'];
+export const URL = _NGX_ENV_.NG_APP_URL;
 export const POKEMONS = "pokemons";
