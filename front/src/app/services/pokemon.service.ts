@@ -9,7 +9,7 @@ import { POKEMONS, URL } from "../constant/request.url.constant";
 })
 export class PokemonService {
     constructor(private _http: HttpClient) {
-        this._http.get<Pokemon[]>(URL + POKEMONS).subscribe(pokemons => {
+        this._http.get<Pokemon[]>("/" + URL + "/" + POKEMONS).subscribe(pokemons => {
             this._pokemons.next({ loading: false, value: pokemons })
         });
     }
