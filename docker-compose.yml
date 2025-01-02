@@ -2,11 +2,10 @@ services:
   front:
     image: node:22.12
     ports:
-      - "8081:4200"
+      - "80:4200"
     command: bash -c "npm install && npm run build && npm run start"
     working_dir: /app
     environment:
-      - NG_APP_URL="toto"
     volumes:
       - ./front:/app
     networks:
