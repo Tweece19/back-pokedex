@@ -6,7 +6,7 @@ export class Pokemon {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', length: 50 })
   name: string;
 
   @Column({ type: 'int' })
