@@ -5,6 +5,7 @@ services:
       - "80:4200"
     command: bash -c "npm install && npm run build && npm run start"
     working_dir: /app
+    environment:
     volumes:
       - ./front:/app
     networks:
