@@ -1,4 +1,3 @@
-import { PokemonType } from './pokemon.model';
 import { URL, POKEMONS } from './request.url.constant';
 
 /**
@@ -8,12 +7,14 @@ const getPokemons = async () => {
     console.log('Fetching Pokemons...');
     const response = await fetch(`${URL}/${POKEMONS}`);
     const data = await response.json();
-    return data.results.map((pokemon, index) => ({
-        id: index + 1,
+    console.log('Pokemons fetched:', data);
+    const test = data.map((pokemon) => ({
+        id: pokemon.id,
         name: pokemon.name,
-        type: PokemonType.FIRE, // Exemple de type
-        hp: 100, // Exemple de HP
+        type: pokemon.type,
+        hp: pokemon.hp,
     }));
+    return test;
 };
 
 export { getPokemons };

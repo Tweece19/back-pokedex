@@ -15,13 +15,17 @@ function App() {
   return (
     <div className="App">
       <h1>Pokemons :</h1>
-      {pokemons.map((pokemon) => (
-        <div key={pokemon.id}>
-          <p>{pokemon.name}</p>
-          <p>{pokemon.type}</p>
-          <p>{pokemon.hp}</p>
-        </div>
-      ))}
+      {pokemons.length > 0 ? (
+        pokemons.map((pokemon) => (
+          <div key={pokemon.id}>
+            <p>{pokemon.name}</p>
+            <p>{pokemon.type}</p>
+            <p>{pokemon.hp}</p>
+          </div>
+        ))
+      ) : (
+        <p>No Pokemons found</p>
+      )}
     </div>
   );
 }
