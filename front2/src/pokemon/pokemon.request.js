@@ -5,7 +5,11 @@ import { URL, POKEMONS } from './request.url.constant';
  */
 const getPokemons = async () => {
     console.log('Fetching Pokemons...');
+    console.log(`${URL}/${POKEMONS}`);
     const response = await fetch(`${URL}/${POKEMONS}`);
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
     const data = await response.json();
     console.log('Pokemons fetched:', data);
     const test = data.map((pokemon) => ({
