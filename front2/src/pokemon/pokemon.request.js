@@ -1,4 +1,5 @@
 import { URL, POKEMONS } from './request.url.constant';
+import axios from 'axios';
 
 /**
  * @returns {Promise<Pokemon[]>}
@@ -19,6 +20,11 @@ const getPokemons = async () => {
         hp: pokemon.hp,
     }));
     return test;
+};
+
+export const createPokemon = async (pokemon) => {
+    const response = await axios.post(`${URL}/${POKEMONS}`, pokemon);
+    return response.data;
 };
 
 export { getPokemons };
