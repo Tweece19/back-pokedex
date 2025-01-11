@@ -1,4 +1,5 @@
 import { URL, POKEMONS } from './request.url.constant';
+import axios from 'axios';
 
 /**
  * @returns {Promise<Pokemon[]>}
@@ -6,7 +7,13 @@ import { URL, POKEMONS } from './request.url.constant';
 const getPokemons = async () => {
     console.log('Fetching Pokemons...');
     console.log(`${URL}/${POKEMONS}`);
-    const response = await fetch(`${URL}/${POKEMONS}`);
+    const response = await axios.get(`${URL}/${POKEMONS}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          
+        },
+      },);
     if (!response.ok) {
         throw new Error('Network response was not ok');
     }

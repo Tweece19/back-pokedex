@@ -4,6 +4,8 @@ services:
     ports:
       - "80:4200"
     command: bash -c "npm install && npm run build && npm run start"
+    environment:
+      - REACT_APP_API_URL=http://localhost:3000
     working_dir: /app
     volumes:
       - ./front2:/app
