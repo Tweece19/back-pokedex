@@ -7,11 +7,17 @@ import axios from 'axios';
 const getPokemons = async () => {
     console.log('Fetching Pokemons...');
     console.log(`${URL}/${POKEMONS}`);
-    const response = await fetch(`${URL}/${POKEMONS}`);
-    if (!response.ok) {
+    const response = await axios.get(`${URL}/${POKEMONS}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+
+        },
+      },);
+    if (response.status !== 200) {
         throw new Error('Network response was not ok');
     }
-    const data = await response.json();
+    const data = response.data;
     console.log('Pokemons fetched:', data);
     const test = data.map((pokemon) => ({
         id: pokemon.id,
