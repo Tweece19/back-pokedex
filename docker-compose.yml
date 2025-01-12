@@ -2,10 +2,10 @@ services:
   front:
     image: node:22.12
     ports:
-      - "80:4200"
+      - "80:3000"
     command: bash -c "npm install && npm run build && npm run start"
     environment:
-      - REACT_APP_API_URL=http://${BACKEND_HOST}:3000
+      - REACT_APP_API_URL=http://localhost:3000
     working_dir: /app
     volumes:
       - ./front2:/app
@@ -19,7 +19,7 @@ services:
     command: bash -c "npm install && npm run start"
     working_dir: /app
     environment:
-      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_HOST=35.181.168.237
       - PORT=3000
     volumes:
       - ./back:/app
