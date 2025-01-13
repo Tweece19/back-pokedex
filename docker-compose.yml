@@ -8,7 +8,7 @@ services:
       - REACT_APP_API_URL=http://${BACKEND_HOST}:3000
     working_dir: /app
     volumes:
-      - ./front2:/app
+      - ./front:/app
     networks:
       - default
   
